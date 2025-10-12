@@ -42,6 +42,22 @@ const displayCategories = (categories) => {
         
     });
 }
+//Video times 
+function getTimeString(time) {
+  const date = parseInt(time / 86400);
+  const remainingHour = time % 86400;
+  const hour = parseInt(remainingHour / 3600);
+  let remainingSecond = remainingHour % 3600;
+  const minute = parseInt(remainingSecond / 60);
+  remainingSecond = remainingSecond % 60;
+
+  if (date > 0) {
+    return `${date} days ${hour} hour ${minute} minute ${remainingSecond} second ago`;
+  } else {
+    return `${hour} hour ${minute} minute ${remainingSecond} second ago`;
+  }
+}
+
 
 // create displayVideos
 const cardDemo = {
@@ -79,9 +95,12 @@ const displayVideos = (videos) => {
      <img class="h-full w-full object-cover rounded-md"
       src=${video.thumbnail}
       alt="video" />
-      <span class="absolute right-2 bottom-2 bg-black p-1 text-white">
-      ${video.others.posted_date}
-      </span>
+      ${
+        video.others.posted_date?.length == 0 ?
+        '' : `<span class="absolute right-2 bottom-2 bg-black p-1 text-white">
+              ${getTimeString(video.others.posted_date)} </span>`
+      }
+
     </figure>
     <div class="px-0 py-2 flex gap-2">
     <div>
@@ -105,8 +124,6 @@ const displayVideos = (videos) => {
     </div>
    `;
     videosContainer.append(card);
-
-        
     });
 }
 
