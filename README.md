@@ -10,17 +10,6 @@ This project is a web-based **YouTube Clone** built using HTML, CSS, JavaScript,
 - Responsive layout using Tailwind CSS
 - Dynamic content loading with JavaScript
 
-## Project Structure
-
-/clone-youtube
-│
-├─ index.html # Main landing page
-├─ style.css # Custom styles
-├─ tailwind.config.js # Tailwind configuration
-├─ script/test.js # Demo API and dynamic content logic
-└─ assets/ # Images, icons, and media
-
-
 ## Technology Stack
 - HTML / CSS - Markup and styling
 - Tailwind CSS - Utility-first CSS framework
